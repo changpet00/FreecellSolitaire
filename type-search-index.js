@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"cs3500.freecell.hw02","l":"FreecellOperations"}]

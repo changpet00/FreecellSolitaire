@@ -1,0 +1,11 @@
+Documented changes in Freecell Model
+
+- Private fields defined at beginning of FreecellModel class changed to protected fields.
+This was to allow for the FreecellMultimoveModel class to call these fields without having to re-instantiate them.
+
+- In addition, private helper methods were changed to protected to provide access to it in the FreecellMultimoveModel class. This was a necessary change to allow access to the moveHelper method and the validMove method (introduced below).
+
+- Created a helper method for the move method called validMove, which moved code from the move method to this helper method. Did not create any new code, just moved part of the move method to a helper method. The validMove method contained the code from the move method that determined if the move was valid based on the given parameters and the set rules of Freecell. I made this change so that I could easily call the validMove method in my FreecellMultimoveModel's move method. 
+
+
+- Changed an IllegalArgumentException in move method, which checked if the card in the destination pile above the card being moved to the destination pile is one rank higher and the opposite suit color (line 154-177). This exception did not properly work when running a test in FreecellMultimoveModelTest which tests a valid multi move of a 3 card build from cascade pile to cascade pile. This change was necessary since the exception method had an index out of bounds error.
